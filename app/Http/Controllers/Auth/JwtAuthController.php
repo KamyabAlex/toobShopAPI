@@ -29,10 +29,11 @@ class JwtAuthController extends Controller
         $user = User::create([
             'name' => $request->name,
             'email' => $request->email,
+            'email_verified_at'=> "2023-11-11 13:51:00",
             'password' => Hash::make($request->password),
         ]);
 
-        event(new Registered($user));
+      //  event(new Registered($user));
 
         return response()->json([
             'status' => 'user-created'
